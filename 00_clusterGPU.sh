@@ -7,7 +7,8 @@
 SCRIPTDIR="/path/to/src/"
 
 SCRIPT1="01_bigWigSummary.R"
-#SCRIPT2="04_a_discreteBayesianNetworks_mergedRep.R"
+# SCRIPT2="04a_discreteBayesianNetworks_mergedRep.R"
+# SCRIPT3="plotMethAcceHeatmap.R"
 
 ################################################################################
 # Summarize bigWig files over enhancer and promotors
@@ -43,10 +44,10 @@ done
 ################################################################################
 
 # Initialize conda
-#source ~/.bashrc
+# source ~/.bashrc
 
 # Activate a certain environment
-#conda activate bayesianNetEnv
+# conda activate bayesianNetEnv
 
 # Submit jobs
 
@@ -60,6 +61,30 @@ done
 #SBATCH --mail-user=QianWu.Liao@stud.uni-heidelberg.de
 #SBATCH --mail-type=ALL
 
-#Rscript ${SCRIPTDIR}${SCRIPT2}
+# Rscript ${SCRIPTDIR}${SCRIPT2}
+
+################################################################################
+# Visualize methylation and accessibility around TSSs
+################################################################################
+
+# Initialize conda
+# source ~/.bashrc
+
+# Activate a certain environment
+# conda activate bayesianNetEnv
+
+# Submit jobs
+
+#SBATCH --job-name=plotHeatmap
+#SBATCH -t 06:00:00
+#SBATCH -n 1
+#SBATCH -p gpu-legacy
+#SBATCH -N 1
+#SBATCH --gres=gpu:4
+#SBATCH --output=plotHeatmap.out
+#SBATCH --mail-user=QianWu.Liao@stud.uni-heidelberg.de
+#SBATCH --mail-type=ALL
+
+# Rscript ${SCRIPTDIR}${SCRIPT3}
 
 ## Fin
