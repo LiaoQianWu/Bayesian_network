@@ -1,3 +1,7 @@
+###################################################################################################################
+####  Can incorporate correlations between features into bn objects for latter convenience for visualization.  ####
+###################################################################################################################
+
 library(bnlearn)
 library(parallel)
 
